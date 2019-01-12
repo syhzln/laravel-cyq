@@ -1,0 +1,8 @@
+body{background-color: #eee;padding-left:150px;}
+
+.main11{background-color: #fff}
+.one_about{width:100%;height:auto;border-top:1px solid #ccc;margin-top:20px;padding:10px;}
+
+.one_about::before,.one_about::after{content: '';display: table;}
+.one_about::after{clear: both}
+#change_info{width:960px;}

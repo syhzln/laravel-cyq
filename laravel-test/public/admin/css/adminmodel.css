@@ -1,0 +1,22 @@
+body{padding-top:50px;padding-left:120px;}
+
+.top_ul a{padding:0;font-weight: bold}
+.top_ul li{padding:0;height:50px;line-height:50px;color:#ccc}
+
+.amodel_left{width:120px; height:100%; position: fixed; background-color:#ccc; left:0; top:50px; border-right: 1px solid black;}
+.amodel_left>ul>li{font-size:20px;font-weight: bold;cursor: pointer; width:120px; text-align:Center}
+.amodel_left>ul>li>span{ width:120px;height:100%;border:1px solid #fff;background-color:#EDEDED;text-align:Center}
+.amodel_left>ul>li span:hover{background-color:#E0E0E0;}
+.amodel_left>ul{list-style: none;margin-top:20px;padding:0;}
+.amodel_left ul ul{list-style: none;padding:0;font-size: 15px;display: none}
+.amodel_left ul ul a{line-height: 35px;margin:5px auto;text-align:center;color:#838383;font-weight: bold; }
+.amodel_left ul ul a:hover{text-decoration: none;color:#fff}
+.amodel_left ul ul li{margin-top:5px ; margin-bottom:5px}
+.amodel_left ul ul li:hover{margin-top:5px ; margin-bottom:5px;background-color:#E0E0E0;}
+
+.amodel_mainfirst{width:100%; height:40px; line-height:40px;background-color:#EEEEED; border-bottom:1px solid #ccc;padding-left:5px; }
+.amodel_mainsecond{width:100%; height:40px; line-height:40px;background-color:#fff; border-bottom:1px solid #ccc;padding-left:5px; }
+.amodel_maintablef{width:80%; margin:0 auto;}
+.amodel_maintablef table{text-align:Center;margin-bottom:0px;margin-top:20px; border:1px solid #ddd;}
+.amodel_maintablef table th{text-align: center}
+

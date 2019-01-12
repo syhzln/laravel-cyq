@@ -1,0 +1,125 @@
+body{
+    padding-left:150px;
+}
+#change_info{width: 880px}
+#write{
+    width: 878px;
+    height: auto;
+    overflow: hidden;
+    margin: 0 auto;
+}
+#addblog-left{
+    width: 718px;
+    float: left;
+    padding: 15px 0 20px 0;
+}
+.addblog-box{
+    height: auto;
+    float: left;
+    background: #fff;
+    padding: 15px 0;
+    border: 1px solid #ddd;
+    border-radius: 2px;
+    -webkit-border-radius: 2px;
+}
+#addBlog_editorWrap{
+    overflow: hidden;
+    float: left;
+    margin: 0 0 20px 15px;
+}
+#addBlog_blogTitle_box {
+    width: 686px;
+    position: relative;
+    z-index: 99;
+    padding: 9px 0;
+    border: 1px solid #ccc;
+}
+
+#addBlog_blogTitle {
+    display: block;
+    font-size: 20px;
+    font-weight: bold;
+    color: #333;
+    border: 0;
+    padding: 0 0 0 10px;
+    background-color: transparent;
+    outline: 0;
+    resize: none;
+    overflow: hidden;
+    height: 30px;
+    line-height: 30px;
+    line-height: 30px \9;
+    width:680px
+}
+/*内容*/
+.mceLayout {
+    border-left: 1px solid #CCC;
+    border-right: 1px solid #CCC;
+    border-bottom: 1px solid #CCC;
+    width: 686px;
+    height: 379px;
+    border-top: 2px solid #1aaf5e;
+}
+.menu{
+    background: #f8f8f8;
+    height: auto;
+    overflow: hidden;
+    width: 684px;
+}
+.add{
+   line-height: 44px;
+    text-align: left;
+    padding: 0 1px;
+    height: 46px;
+    font-size: 14px;
+    color: #888;
+}
+
+.file {
+    position: relative;
+    display: inline-block;
+    background: #D0EEFF;
+    border: 1px solid #99D3F5;
+    border-radius: 4px;
+    padding: 4px 12px;
+    overflow: hidden;
+    color: #1E88C7;
+    text-decoration: none;
+    text-indent: 0;
+    line-height: 20px;
+    vertical-align: middle;
+}
+.file input {
+    position: absolute;
+    font-size: 100px;
+    right: 0;
+    top: 0;
+    opacity: 0;
+}
+
+#addBlog_editorButtons {
+    position: relative;
+    width: 688px;
+    height: auto;
+    overflow: hidden;
+    margin: auto;
+}
+#push{
+    position: absolute;
+    right: 0;
+}
+#addblog-right{
+    float: left;
+}
+
+
+#myDiv{width: 100%; height: 330px; text-decoration: none; border: none;  overflow:auto;padding:10px;font-size:14px;line-height:16px;}
+
+.diary_brow{position:fixed; width:410px;height:260px;background-color:#F8F8F8; top:35%;left:35%;z-index: 900;padding:10px 0;box-shadow:0 0 25px -3px #0f0f0f;display:none}
+
+.diary_brow1{width:100%;height:35px;padding-left:10px;padding-top:5px;}
+.diary_brow2{width:100%;height:190px;background-color:#fff;margin-top:10px;padding:0 10px;}
+.diary_brow2 ul li{float: left;margin:5px;}
+.diary_brow2 ul li:hover{cursor: pointer;}
+#docuo:hover{cursor:pointer;}
+

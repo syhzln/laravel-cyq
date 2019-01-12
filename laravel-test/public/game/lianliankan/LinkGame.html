@@ -1,0 +1,972 @@
+<!DOCTYPE html>
+<html>
+<head>
+ <style type="text/css">
+     #table{
+     width:650px;
+     height:650px;
+     margin:1px auto 1px; 
+     border-collapse:collapse;
+      border:1px solid green;
+      background-color:#00FF7F;
+     }
+    #time{
+        border-spacing: 0px;
+       
+       
+     
+     }
+     #total{
+     
+        margin:0 auto}
+        
+     #game td{
+       width:25px;
+       height:25px;
+        background-position: center;
+       background-repeat: no-repeat;
+   }  
+   
+     </style>
+             <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+             <script type="text/javascript" src="jquery-1.11.1.js"></script>
+             <script type="text/javascript">
+                var judge=["0"]; 
+                var rs=new Array();
+                var nubu=new Array();
+                var nubuX=new Array();
+                var nubuY=new Array();
+                var level=1;
+                var index=0;
+                var interval;
+                var interval1;
+                var difficult=0;
+                var sequence;
+                var isDel=false;
+                var overattr=new Array();
+                var overid=new Array();
+                var tips=new Array();
+                var num2=10;
+                var num1=5;
+                var score=0;
+                var isNo=true;
+                var t1;
+                var t2;
+                
+                //创建表格
+                function createTable(rows,cels){
+	                var table=$("#game");         
+	                for(var i=0;i<cels;i++){             
+				           var tr=$("<tr></tr>");
+				           tr.appendTo(table);
+				           for(var j=0;j<rows;j++){
+					           var td=$("<td id='"+i+"-"+j+"'></td>"); 
+					           td.appendTo(tr);
+	                       }
+                     }
+             }
+                
+                //创建时间表格
+                function time(){
+            	   var table=$("#time");
+            	   var tr=$("<tr></tr>");
+            	   tr.appendTo(table);
+            	   for(var t=0;t<240;t++){
+            	    	var td=$("<td id='"+t+"'></td>");
+            	    	td.appendTo(tr);
+            	   }
+                }
+                 
+           //给游戏表格添加背景图片
+            function backImage(){
+            	colornum=8+4*level;
+            	//colornum=30;
+            	var tableX=6-level;
+            	var colors=new Array();
+            	colors=["images/1.gif","images/2.gif","images/3.gif","images/4.png","images/5.gif","images/6.png","images/7.png","images/8.png","images/9.png","images/10.png","images/11.png","images/12.png","images/13.png","images/14.png","images/15.png","images/16.png","images/17.png","images/18.png","images/19.png","images/20.png","images/21.png","images/22.png","images/23.png","images/24.png","images/25.png","images/26.png","images/27.png","images/28.png","images/29.png","images/30.png"];
+            	    for(var c=0;c<colornum;c++){
+            	    	  for(var i=0;i<6;){
+            	    		  var x=1+Math.floor(Math.random()*12);
+            	    		  var y=tableX+Math.floor(Math.random()*(4+2*level));
+            	    		  if($('#'+y+"-"+x).attr("background")){
+            	    		  }else{
+            	    		        $('#'+y+"-"+x).attr("background",colors[c]);
+            	    		    	i++;
+               	    		    }
+            	    	  }
+            	    }
+              }
+            
+          //给时间表格添加属性
+            function timecolor(){
+            	for(var t=0;t<240;t++){
+          		   rs.push(t);
+          		   $('#'+t).attr("bgcolor","#FF0000");
+          		 }
+            }
+             
+         
+          //点击事件之选中效果
+          function clickShow(){
+               $("#game td").click(function(){
+        	     if(tips.length>=0){
+	        		  $('#'+tips[0]).removeAttr("style");
+	        		  $('#'+tips[1]).removeAttr("style");
+	        		  tips=new Array();
+        	      }
+	        	   id= $(this).attr("id");
+	        	   if($(this).attr("background")){	  
+		        	   $('#'+judge[judge.length-2]).removeAttr("style");
+		        	   $('#'+judge[judge.length-1]).removeAttr("style");
+		        	   judge.push(id);
+		 	           $('#'+id).attr("style", "border:1px solid;border-color:red");
+	        	  }
+        	   });
+          }
+         
+         
+          //点击事件之获取点击的延生格
+          function space(coord){
+        	  nubu[0]=coord;
+        	  var id=new Array();
+        	  id=coord.split("-");
+        	  var y=parseInt(id[0]);
+        	  nubuY[0]=y;
+        	  var x=parseInt(id[1]);
+        	  nubuX[0]=x;
+        	   for(var i=x-1;i>=0;i--){
+			          if($('#'+y+"-"+i).attr("background")){
+			                 break;
+			          }else{
+	   			    	     nubu.push($('#'+y+"-"+i).attr("id"));
+	   			    	     nubuX.push(i);
+	   			    	     nubuY.push(y);
+	   			       }
+			   }
+			    
+			  //x轴右方向延伸  
+			  for(var i=x+1;i<14;i++){
+			    if($('#'+y+"-"+i).attr("background")){
+			                break;
+			    }else{
+   			    	
+   			    	 nubu.push($('#'+y+"-"+i).attr("id"));
+   			    	 nubuX.push(i);
+   			    	 nubuY.push(y);
+   			        
+   			   }
+	         }
+			    
+			    
+		       //Y轴上方向延伸
+	           for(var i=y-1;i>=0;i--){
+	    	      if($('#'+i+"-"+x).attr("background")){
+	                   break;
+	              }else{
+	    	            nubu.push($('#'+i+"-"+x).attr("id"));
+	    	            nubuY.push(i);
+	    	            nubuX.push(x);  
+	    	       }
+	            }
+	               
+	      //y轴下方向延伸
+	          for(var i=y+1;i<16;i++){
+           	     if($('#'+i+"-"+x).attr("background")){
+                     break;
+  	               }
+  	             else{
+	    	         nubu.push($('#'+i+"-"+x).attr("id"));
+ 	                 nubuY.push(i);
+ 	                 nubuX.push(x);
+               }
+             } 
+         }
+          
+          
+       
+          //消除时间
+          function restTime(){
+            	    index=index+1;
+            	    var a=rs[rs.length-index];
+            	    $('#'+a).removeAttr("bgcolor");
+            	    $("#resttime").text(a);
+            	    nextLevel();
+            	    if(a==0){
+            	    	alert("速度不够快，继续加油");
+            	    	 clearInterval(interval);
+            	    	 reset();
+            	    	 $('#on').removeAttr("disabled");
+            	    	
+            	    }
+          }
+          
+          //下一关
+          function nextLevel(){
+        	  var isEmpty = true;
+        	  $("#game td").each(function(i,td){
+        		  if($(td).attr("background")){
+        			  isEmpty = false;
+        			  return;
+        		  }
+        	  });
+        	  
+        	  if(!isEmpty){
+        		  return;
+        	  }else{
+        		  alert("进入下一难度，请点击开始游戏");
+        		  $("#time td").removeAttr("bgcolor");
+        		  difficult=difficult+1;
+        		  if(difficult>=9){
+        			  difficult=0;
+        			  level=level+1;
+        			  if(level>5){
+            			  alter("我屮艸芔茻，竟然通关了");
+            			  level=0;
+            		  }
+        			  $("#level").text(level);
+        			  
+        		  }
+        		  $('#direction').text(difficult)
+        		   reset();
+        		   $("#game td").show();
+	            	  interval = setInterval(function(){restTime()},1000);
+	            	  $("#on").attr("disabled","disabled");
+	            	  $("#selectlevel").attr("disabled","disabled");
+	            	  $("#difficulty").attr("disabled","disabled");
+	            	  $('#tip').removeAttr("disabled");
+	            	  $('#realign').removeAttr("disabled");
+        	  }
+        	
+          }
+          
+          //重置游戏
+          function reset(){
+		           if(tips.length>=0){
+		        		  $('#'+tips[0]).removeAttr("style");
+		        		  $('#'+tips[1]).removeAttr("style");
+		        		  tips=new Array();
+		        	}
+        	        clearInterval(interval);
+        	        $("#game td").removeAttr("background");
+        	        $("#time td").removeAttr("bgcolor");
+        	        backImage();
+        	        timecolor();
+        	        index=0;
+        	        num2=10;
+        	        $("#num2").text(num2);
+        	        num1=5;
+        	        score=0;
+        	        $("#score").text(score);
+        	        $("#num1").text(num1);
+        	        $("#game td").hide();
+        	        $('#on').removeAttr("disabled");
+        	        $('#selectlevel').removeAttr("disabled");
+        	        $('#difficulty').removeAttr("disabled");
+        	        $("#resttime").text("120");
+        	        $("#tip").attr("disabled","disabled");
+        	        $("#realign").attr("disabled","disabled");
+        	  
+          }
+          
+          // 向上靠拢
+          function up(delCoord){
+        	    var xy=new Array();
+        	    xy=delCoord.split("-");
+        	    var y=parseInt(xy[0])+1;
+        	    var yy=y-1;
+        	    var x=parseInt(xy[1]);
+        	    
+        	    var upCoord=new Array();
+        	    for(;y<16;y++){
+        	    	upCoord.push($('#'+y+"-"+x).attr("background"));
+        	    	$('#'+y+"-"+x).removeAttr("background");
+        	    	
+        	    }
+        	    for(var i=0;i<upCoord.length;i++){
+        	    	$('#'+(yy)+"-"+x).attr("background",upCoord[i]);
+        	    	yy++;
+        	    }
+        	    
+          }
+          
+          // 中心向上靠拢
+          function upCenter(delCoord){
+        	    var xy=new Array();
+        	    xy=delCoord.split("-");
+        	    var y=parseInt(xy[0])+1;
+        	    var yy=y-1;
+        	    var x=parseInt(xy[1]);
+        	    
+        	    var upCoord=new Array();
+        	    for(;y<8;y++){
+        	    	upCoord.push($('#'+y+"-"+x).attr("background"));
+        	    	$('#'+y+"-"+x).removeAttr("background");
+        	    	
+        	    }
+        	    for(var i=0;i<upCoord.length;i++){
+        	    	$('#'+(yy)+"-"+x).attr("background",upCoord[i]);
+        	    	yy++;
+        	    }
+        	    
+          }
+          
+          
+       // 向下靠拢
+          function down(delCoord){
+        	    var xy=new Array();
+        	    xy=delCoord.split("-");
+        	    var y=parseInt(xy[0])-1;
+        	    var yy=y+1;
+        	    var x=parseInt(xy[1]);
+        	    
+        	    var downCoord=new Array();
+        	    for(;y>0;y--){
+        	    	downCoord.push($('#'+y+"-"+x).attr("background"));
+        	    	$('#'+y+"-"+x).removeAttr("background");
+        	    	
+        	    }
+        	    for(var i=0;i<downCoord.length;i++){
+        	    	$('#'+(yy)+"-"+x).attr("background",downCoord[i]);
+        	    	yy--;
+        	    }
+        	    
+          }
+       
+       //中心向下
+          function downCenter(delCoord){
+        	    var xy=new Array();
+        	    xy=delCoord.split("-");
+        	    var y=parseInt(xy[0])-1;
+        	    var yy=y+1;
+        	    var x=parseInt(xy[1]);
+        	    
+        	    var downCoord=new Array();
+        	    for(;y>=8;y--){
+        	    	downCoord.push($('#'+y+"-"+x).attr("background"));
+        	    	$('#'+y+"-"+x).removeAttr("background");
+        	    	
+        	    }
+        	    for(var i=0;i<downCoord.length;i++){
+        	    	$('#'+(yy)+"-"+x).attr("background",downCoord[i]);
+        	    	yy--;
+        	    }
+        	    
+          }
+       //向右靠拢
+         function right(delCoord){
+    	    var xy=new Array();
+    	    xy=delCoord.split("-");
+    	    var y=parseInt(xy[0]);
+    	    var x=parseInt(xy[1])-1;
+    	    var xx=x+1;
+    	    
+    	    var rightCoord=new Array();
+    	    for(;x>0;x--){
+    	    	rightCoord.push($('#'+y+"-"+x).attr("background"));
+    	    	$('#'+y+"-"+x).removeAttr("background");
+    	    	
+    	    }
+    	    for(var i=0;i<rightCoord.length;i++){
+    	    	$('#'+y+"-"+xx).attr("background",rightCoord[i]);
+    	    	xx--;
+    	    }
+    	   
+       }
+       
+         //中心向右靠拢
+         function rightCenter(delCoord){
+    	    var xy=new Array();
+    	    xy=delCoord.split("-");
+    	    var y=parseInt(xy[0]);
+    	    var x=parseInt(xy[1])-1;
+    	    var xx=x+1;
+    	    
+    	    var rightCoord=new Array();
+    	    for(;x>=7;x--){
+    	    	rightCoord.push($('#'+y+"-"+x).attr("background"));
+    	    	$('#'+y+"-"+x).removeAttr("background");
+    	    	
+    	    }
+    	    for(var i=0;i<rightCoord.length;i++){
+    	    	$('#'+y+"-"+xx).attr("background",rightCoord[i]);
+    	    	xx--;
+    	    }
+    	   
+       }
+       
+       //向左靠拢
+         function left(delCoord){
+    	    var xy=new Array();
+     	    xy=delCoord.split("-");
+     	    var y=parseInt(xy[0]);
+     	    var x=parseInt(xy[1])+1;
+     	    var xx=x-1;
+     	    
+     	    var leftCoord=new Array();
+     	    for(;x<14;x++){
+     	    	leftCoord.push($('#'+y+"-"+x).attr("background"));
+     	    	$('#'+y+"-"+x).removeAttr("background");
+     	    	
+     	    }
+     	    for(var i=0;i<leftCoord.length;i++){
+     	    	$('#'+y+"-"+xx).attr("background",leftCoord[i]);
+     	    	xx++;
+     	    }
+       
+       } 
+       
+       //中心向左靠拢
+         function leftCenter(delCoord){
+    	    var xy=new Array();
+     	    xy=delCoord.split("-");
+     	    var y=parseInt(xy[0]);
+     	    var x=parseInt(xy[1])+1;
+     	    var xx=x-1;
+     	    
+     	    var leftCoord=new Array();
+     	    for(;x<7;x++){
+     	    	leftCoord.push($('#'+y+"-"+x).attr("background"));
+     	    	$('#'+y+"-"+x).removeAttr("background");
+     	    	
+     	    }
+     	    for(var i=0;i<leftCoord.length;i++){
+     	    	$('#'+y+"-"+xx).attr("background",leftCoord[i]);
+     	    	xx++;
+     	    }
+       
+       } 
+       
+       
+       
+          //判断是否满足消除的条件
+          function compareCoorl(){
+        	  if($('#'+judge[judge.length-2]).attr("background")==$('#'+judge[judge.length-1]).attr("background")){
+        		  var compare1=new Array();
+        		  var compare1X=new Array();
+        		  var compare1Y=new Array();
+        		      space(judge[judge.length-2]);
+        		      compare1=nubu;
+        		      compare1X=nubuX;
+        		      compare1Y=nubuY;
+        		      nubu=new Array();
+        		      nubuX=new Array();
+        		      nubuY=new Array();
+        		  var compare2=new Array();
+        		  var compare2X=new Array();
+        		  var compare2Y=new Array();
+        		       space(judge[judge.length-1]);
+        		       compare2=nubu;
+        		       compare2X=nubuX;
+         		       compare2Y=nubuY;
+         		       nubu=new Array();
+         		       nubuX=new Array();
+         		       nubuY=new Array();
+         		       
+         		   for(var i=0;i<compare1X.length;i++){
+         			   for(var j=0;j<compare2X.length;j++){
+         				   if(compare1X[i]==compare2X[j]){
+         					    if(compare1Y[i]==compare2Y[j]){
+         					    	isDel=true;
+         					    	break;
+         					    }else{
+         					    	 var start=compare1Y[i]>compare2Y[j]?compare2Y[j]:compare1Y[i];
+          						     var end  =compare1Y[i]>compare2Y[j]?compare1Y[i]:compare2Y[j];
+          						       
+          						   if(start+1==end){
+          							 isDel=true;
+      							     break;
+	      						   }else{
+	      							 for(;start+1<end;start++){
+							 	    	   var isFalse=true;
+			   							   if($('#'+(start+1)+"-"+compare1X[i]).attr("background")){
+			   								   isFalse=false;
+			   								   break;
+			   							
+									 	   }
+			   							   
+							 	      }
+							 	      if(isFalse==true){
+							 	    	 isDel=true;
+							 	      } 
+							 	   }
+         					    	
+         					  } 
+         				}
+         			 }
+         		 }     
+         		       
+         		       
+         		  for(var i=0;i<compare1Y.length;i++){
+        			   for(var j=0;j<compare2Y.length;j++){
+        				   if(compare1Y[i]==compare2Y[j]){
+        					    if(compare1X[i]==compare2X[j]){
+        					    	isDel=true;
+        					    	break;
+        					    }else{
+        					    	 var start=compare1X[i]>compare2X[j]?compare2X[j]:compare1X[i];
+         						     var end  =compare1X[i]>compare2X[j]?compare1X[i]:compare2X[j];
+         						     
+         						     
+         						   if(start+1==end){
+         							  isDel=true;
+     							      break;
+     						      }else{
+     						 	      for(;(start+1)<end;start++){
+     						 	    	   var isNull=true;
+         							   if($('#'+compare1Y[i]+"-"+(start+1)).attr("background")){
+         								   isNull=false;
+         								   break;
+         							
+     						 	      }
+         							   
+     						 	      }
+     						 	      if(isNull==true){
+     						 	    	isDel=true;
+     						 	      }
+         							 
+     						 	      } 
+         						   } 
+        					    }
+        				     } 
+        			   }   
+         		  }  }
+          
+                //点击数两位置的变换
+                function change(){
+                	 var a=judge[judge.length-2];
+                	 var arr=a.split("-");
+                	 var aX=parseInt(arr[1]);
+                	 var aY=parseInt(arr[0]);
+                	 
+                	 var b=judge[judge.length-1];
+                	 var brr=b.split("-");
+                	 var bX=parseInt(brr[1]);
+                	 var bY=parseInt(brr[0]);
+                	
+                	 switch(sequence){
+                	 case 1:
+                		 if(aY<bY){
+						    	var temp=judge[judge.length-2];
+						    	judge[judge.length-2]=judge[judge.length-1];
+						    	judge[judge.length-1]=temp;
+						         }
+						    	break;
+                	
+                	 case 2:
+				         if(aY>bY){
+				    	 var temp=judge[judge.length-2];
+				    	judge[judge.length-2]=judge[judge.length-1];
+				    	judge[judge.length-1]=temp;
+				         }
+				    	break;
+				    	
+                	 case 3:
+                		 if(aX>bX){
+						    	var temp=judge[judge.length-2];
+						    	judge[judge.length-2]=judge[judge.length-1];
+						    	judge[judge.length-1]=temp;
+						         }
+						    	break;
+						    	
+                	 case 4:
+                		 if(aX<bX){
+						    	var temp=judge[judge.length-2];
+						    	judge[judge.length-2]=judge[judge.length-1];
+						    	judge[judge.length-1]=temp;
+						         }
+						    	break;		    	     
+                }
+                }
+                
+        	   //删除移动方法
+              function del(){
+            	  $('#'+judge[judge.length-2]).removeAttr("style");
+            	  $('#'+judge[judge.length-1]).removeAttr("style");
+            	  $('#'+judge[judge.length-1]).removeAttr("background");
+            	  $('#'+judge[judge.length-2]).removeAttr("background");
+            	  score+=20;
+            	  $("#score").text(score);
+            	  
+            	  var id1=new Array();
+            	  var pd=judge[judge.length-2];
+            	  id1=pd.split("-");
+            	  var y1=parseInt(id1[0]);
+            	  var x1=parseInt(id1[1]);
+            	  
+            	  var id2=new Array();
+            	  id2=judge[judge.length-1].split("-");
+            	  var y2=parseInt(id2[0]);
+            	  var x2=parseInt(id2[1]);
+            	  
+            	  
+            	  
+            	  switch(difficult){
+            	  
+            	  case 1://上
+            		     sequence=1;
+            		     change();
+            	         up(judge[judge.length-2]);
+            	         up(judge[judge.length-1]);
+            	         break;
+            	         
+            	  case 2://下
+            		  sequence=2;
+         		      change();
+            		  down(judge[judge.length-2]);
+         	          down(judge[judge.length-1]);
+         	             break;
+         	             
+            	  case 3://右
+            		  sequence=3;
+         		      change();
+            		  right(judge[judge.length-2]);
+         	          right(judge[judge.length-1]);
+         	             break;  
+         	             
+            	  case 4://左
+            		  sequence=4;
+         		      change();
+            		  left(judge[judge.length-2]);
+         	          left(judge[judge.length-1]);
+         	             break;  
+         	             
+            	  case 5://从左右向中间靠拢
+            	    if(x1<=6){
+            	    	 sequence=3;
+            		     change();
+            	    	right(judge[judge.length-2]);
+            	    }else{
+            	    	 sequence=4;
+            		      change();
+            	    	left(judge[judge.length-2]);
+            	    }
+            	  
+            	   if(x2>=7){
+            		   left(judge[judge.length-1])
+            	   }else{
+            		  
+            		   right(judge[judge.length-1]);
+            	   }
+            		  difficult=5;  
+            		  break;
+            		  
+            	  case 6:       //左右向外发散
+            		  if(x1<=6){
+            			   if(x2<=6){
+            			 sequence=4;
+             		     change();
+            			   }
+              	    	leftCenter(judge[judge.length-2]);
+              	    }else{
+              	    	if(x2>=7){
+              	    	sequence=3;
+           		        change();
+              	    	}
+              	    	rightCenter(judge[judge.length-2]);
+              	    }
+              	  
+              	   if(x2>=7){
+              		   rightCenter(judge[judge.length-1])
+              	   }else{
+              		   leftCenter(judge[judge.length-1]);
+              	   }
+              		  difficult=6;  
+              		  break;
+            	
+            	  case 7:          //上下向中间靠拢
+            		  if(y1<8){
+          			    if(y2<8){
+		          			 sequence=2;
+		           		     change();
+          			         }
+            	    	down(judge[judge.length-2]);
+            	    }else{
+            	    	if(y2>=8){
+		            	    	sequence=1;
+		         		        change();
+            	    	  }
+            	    	up(judge[judge.length-2]);
+            	    }
+            	  
+            	   if(y2>=8){
+            		   up(judge[judge.length-1])
+            	   }else{
+            		   down(judge[judge.length-1]);
+            	   }
+            		  difficult=7;  
+            		  break;
+             		  
+            	  case 8:       //上下向外发散
+            		  if(y1>=8){
+            			    if(y2>=8){
+            			 sequence=2;
+             		     change();
+            			    }
+              	    	downCenter(judge[judge.length-2]);
+              	    }else{
+              	    	if(y2<8){
+              	    	sequence=1;
+           		        change();
+              	    	}
+              	    	upCenter(judge[judge.length-2]);
+              	    }
+              	  
+              	   if(y2<8){
+              		   upCenter(judge[judge.length-1])
+              	   }else{
+              		   downCenter(judge[judge.length-1]);
+              	   }
+              		  difficult=8;  
+              		  break;
+             	
+            	  
+            	  }
+            	  judge=["0"];
+             }
+              
+        //重新排列
+          function realign(){
+//        	$("#game td").each(function(i,td){
+//        		if($(td).attr("background")){
+//        		  overattr.push($(this).attr("background"));
+//        		  overid.push($(this).attr("id"));
+//        		  $(this).removeAttr("background");
+//       		}
+//        	});
+  
+            for(var a=0;a<16;a++){
+            	for(var b=0;b<14;b++){
+            		if($('#'+a+"-"+b).attr("background")){
+            			 overattr.push($('#'+a+"-"+b).attr("background"));
+             		     overid.push($('#'+a+"-"+b).attr("id"));
+              		     $('#'+a+"-"+b).removeAttr("background");
+            		}
+            		
+            	}
+            	
+            }
+        	for(var i=0;i<overattr.length;){
+        		var arrid=Math.floor(Math.random()*overid.length);
+        		var id=overid[arrid];
+        		if($('#'+id).attr("background")){
+        			i=i;
+        		}else{
+        			$('#'+id).attr("background",overattr[i]);
+        			i++;
+        		}
+        		
+        	}
+        	overattr=new Array();
+        	overid  =new Array();
+        	
+        }
+        //判断是否需要充值
+        
+          function pdRealign(){
+        	  tip();
+        	  judge[judge.length-2]=t1;
+		      judge[judge.length-1]=t2;	
+		      if(isNo==false){
+        		   isNo=true;
+        	  }else{
+        		   realign();
+    		       isNo=true;
+        	 }
+        		
+        }
+
+        
+        //提示功能
+           function tip(){
+            isDel=false;
+            if(judge.length>=2){
+             t1=judge[judge.length-2];
+             t2=judge[judge.length-1];   
+            }else{
+            	judge.push("0");
+            	t1=judge[judge.length-2];
+                t2=judge[judge.length-1];   
+            }
+        	for(var i=1;i<15;i++){
+        		for(var j=1;j<13;j++){
+        			 if($('#'+i+"-"+j).attr("background")){
+        			   judge[judge.length-2]=$('#'+i+"-"+j).attr("id");
+        			     for(var m=1;m<15;m++){
+                		   for(var n=1;n<13;n++){
+                			  if($('#'+m+"-"+n).attr("background")){
+                			  judge[judge.length-1]=$('#'+m+"-"+n).attr("id");
+                			    if(judge[judge.length-2]!=judge[judge.length-1]){
+                			     	compareCoorl();
+                			     	if(isDel==true){
+                			     		tips[0]=judge[judge.length-2];
+               				    	    tips[1]=judge[judge.length-1];
+                				        isDel=false;
+	                				    isNo=false;
+	                				    return;
+	                			   }
+                			   
+                			     }
+                			  }    
+                		}
+                		  
+                	}
+        		}
+        	
+        	}
+        		
+        }
+        	
+    }
+        	   
+          //就绪函数
+          $(document).ready(function(){
+        	  createTable(14,16);
+        	  $("#selectlevel").change(function(){
+        		  level=$("#selectlevel").find("option:selected").text(); 
+                  $('#level').text(level);
+                  reset();
+                 // $("#selectlevel").attr("disabled","disabled");
+        	  });
+        	  
+        	  $("#difficulty").change(function(){
+        		  difficult=parseInt($("#difficulty").find("option:selected").text());
+                  reset();
+                  $('#direction').text(difficult);
+                });
+        	  time();
+        	  backImage();
+        	  timecolor();
+        	  clickShow();
+              $("#game td").hide();
+        	  $("#tip").attr("disabled","disabled");
+        	  $("#realign").attr("disabled","disabled");
+        	  $("#on").click(function(){
+			          $("#game td").show();
+			          interval = setInterval(function(){restTime()},1000);
+			          interval1 = setInterval(function(){ pdRealign()},2000);
+			          $("#on").attr("disabled","disabled");
+	            	  $("#selectlevel").attr("disabled","disabled");
+	            	  $('#tip').removeAttr("disabled");
+	            	  $('#realign').removeAttr("disabled");
+	            	  $("#difficulty").attr("disabled","disabled");
+               });
+        	          
+        	 $("#off").click(function(){
+		        	  $("#game td").hide();
+		        	   clearInterval(interval);
+		        	   clearInterval(interval1);
+		        	  $('#on').removeAttr("disabled");
+		        	  $("#tip").attr("disabled","disabled");
+		        	  $("#realign").attr("disabled","disabled");
+		     });
+        	 
+        	 $("#reset").click(function(){
+        		 score=0;
+     	         $("#score").text(score);
+        		 reset();		 
+        	 });
+        	 
+        	 $("#realign").click(function(){
+        	     if(num1>0){
+		        	  num1--;
+		        	  $("#num1").text(num1);
+		       	      realign();
+		       	      overattr=new Array();
+		              overid=new Array();
+        	    }else{
+        		      $("#realign").attr("disabled","disabled");
+        	   }
+       	   });
+        	 
+        	$("#tip").click(function(){
+        		 if(num2>0){
+        			  num2--;
+        		      $('#'+judge[judge.length-1]).removeAttr("style");
+        			  tip();	
+        			  $('#'+tips[0]).attr("style", "border:1px solid;border-color:blue");
+					  $('#'+tips[1]).attr("style", "border:1px solid;border-color:blue");
+					 $("#num2").text(num2);
+        		 }else{
+        			  $("#tip").attr("disabled","disabled");
+        		 }
+        		 
+        		 judge=new Array();
+				 judge=["0"];
+            });
+        	  $("#game").click(function(){
+        		 
+        		  if(judge[judge.length-2]!=judge[judge.length-1]&&(judge.length>=3)){
+        			 compareCoorl();
+        			 if(isDel==true){
+        				 del();
+        				 isDel=false;
+        			 }
+        			 
+        		 }
+        	 });
+         });
+             
+             
+  </script>           
+</head>
+     <body>
+          <table  border="0" id="total">
+             <tr>
+                   <td colspan="2" style="background-color:#00FF00;">
+                           <h1>表情连连看</h1>
+                  </td>
+           </tr>
+
+             <tr>
+                    <td style="background-color:#00FF7F;width:100px;text-align:top;">
+                       <b>Menu</b><br />
+                       <button id="on">开始游戏</button><br>
+                       <button id="off">暂停游戏</button><br>
+                       <button id="reset">重置游戏</button><br>
+                       
+                       <button id="realign">重新排列<br> 
+                       <span>剩余</span><span id="num1" style="color:red;">5</span><span>次</span></button><br>
+                        
+                       
+                       
+                       <button id="tip">提示<br> 
+                       <span>剩余</span><span id="num2" style="color:red;">10</span><span>次</span></button><br>
+                                                                                初始等级：<select id="selectlevel">
+			        	               <option value="1">1</option>
+			                           <option value="2">2</option>
+			                           <option value="3">3</option>
+			                           <option value="4">4</option>
+			                           <option value="5">5</option>
+			                       </select><br>    
+			                                      初始难度：<select id="difficulty">
+			                           <option value="0">0</option>
+			        	               <option value="1">1</option>
+			                           <option value="2">2</option>
+			                           <option value="3">3</option>
+			                           <option value="4">4</option>
+			                           <option value="5">5</option>
+			                           <option value="6">6</option>
+			                           <option value="7">7</option>
+			                            <option value="8">8</option>
+			                       </select>          
+                  </td>
+                   <td style="background-color:#00FFFF">
+                         <table id="game" border="0" width=500px height=600px  cellspacing=10;>
+                             <caption><span>总分：</span><span id="score" style="color:red;">0</span>
+                             <span>等级：</span><span id="level" style="color:red;">1</span>
+                             <span>剩余时间：</span><span id="resttime" style="color:red;">240</span>
+                              <span>难度：</span><span id="direction" style="color:red;">0</span>
+                             </caption>
+                         </table>
+                 </td>
+           </tr>
+
+             <tr>
+                <td colspan="2" style="background-color:#00FF7F; height:20px">
+                      <table id="time" border="0"; width="100%";  height="85%" >
+                      </table>
+                </td>
+           </tr>
+      </table>
+  </body>
+</html>

@@ -1,0 +1,107 @@
+*{ margin:0; padding:0; }
+
+body{padding-top:100px;background-color: #E9EDF0;box-shadow: -5px -5px 3px 1px #ccc; }
+ul{text-decoration: none;list-style: none}
+#model_left{ background-color:#E6EAEE; position:fixed; top:50px; left:0; height:100%; width:150px;overflow: hidden;}
+#model_left{outline:1px solid #ccc}
+#model_left ul{ padding-top:15px;}
+#model_left a{padding-top:15px; padding-bottom:15px;}
+#model_left li{ height:40px; line-height:40px; width:150px; font-size:18px; padding-left:15px;color:#050506; font-family:'华文细黑';}
+#model_left li img{ margin-top:-5px; height:30px; vertical-align:middle; padding-right:10px;}
+#model_left li:hover{ background-color:#BCBCBC;}
+a:hover{  text-decoration:none;}
+a:focus{ text-decoration:none;}
+#model_left::before,#model_left::after{content:'';display:table;}
+#model_left::after{clear:both}
+/************ 第二行 ****************/
+
+#change_infof{ position:fixed;  width:100%; height:50px; top:50px;left:150px; background-color:#F3F6F8;box-shadow: 0 2px 3px 0 #ccc;z-index:400;}
+#change_info{ width:760px; margin:0 auto;}
+#change_info ul{ list-style: none; width:760px; height:50px;  line-height:50px; text-align:center;}
+#change_info ul li{ height:47px; margin:0 10px; float:left;}
+#change_info ul li:hover{ border-bottom:3px solid blue;}
+#change_info a{ color:#050506;}
+
+/************ 主内容 *************/
+/************  写日志传照片  *************/
+/*.model_main{width:100%;height:100%;padding-left:150px;}*/
+#model_main{width:760px;margin:0 auto;margin-top:20px;height:100%}
+#model_main_left{width:500px;float:left;margin-right:20px;}
+/*#model_main_right{width:240px;float: left}*/
+#indexlog_div{height: 124px;width:500px;box-shadow: 2px 2px 2px 0.5px #ccc;margin-bottom: 20px;background-color: #F8F8F8;}
+#indexlog_textarea{resize: none;border:none;width: 500px;padding:5px;height:80px;background-color: #FFFFFF;}
+#indexlog_img{width:250px;float: left;}
+#indexlog_imgi{width: 100px;margin:0 auto;}
+#indexlog_sub{float: right;width: 250px;text-align: center}
+#model_main::before,#model_main::after{content: '';display: table}
+#model_main::after{clear:both}
+/****************  找同学  **********************/
+
+/****************  广告  **********************/
+#index_ad{margin-top:20px;margin-bottom:15px;width:500px;outline:1px solid #ccc}
+
+
+/******************* 朋友圈内容 *********************/
+.index_friends{outline:1px solid #ccc;background-color:#fff;box-shadow: 2px 2px 2px 0.5px #ccc;margin-bottom:15px;}
+.index_onefriend{width:500px;height:80px;padding:15px;}
+.index_friendimg{float: left;}
+.index_friendinfo{width:400px;float: left;line-height:25px;padding-left: 10px;}
+.index_friends::before,.index_friends::after{content:'';display:table;}
+.index_friends{clear: both;}
+.index_friendstext{padding:0 15px 10px 15px;}
+.index_friendstext::before,.index_friendstext::after{content:'';display: table;}
+.index_friendstext{clear:both}
+/*** 点赞 ***/
+.index_friendssure{width:500px;height:60px;padding:15px;}
+/*** 评论 ***/
+.index_comment{width: 500px;height: auto;border-top:1px solid #ccc}
+.index_friendscomment_list {width:500px; padding:10px 15px;background-color: #F8F8F8;float: left}
+.index_friendscomment{width:500px;height:auto; padding:10px 15px;background-color: #F8F8F8;}
+.index_friendscomment::before,.index_friendscomment::after{content: '';display: table;}
+.index_friendscomment{clear:both}
+.index_friendscomment_content{width: 430px;height: auto;float: left;overflow: hidden;}
+.index_friendscomment_list p{float: left;margin:0 10px;width: 410px;margin-top: 0px;word-break:break-word;}
+.index_friendscomment_list p::before,.index_friendscomment_list p::after{content: '';display: table;}
+.index_friendscomment_list p{clear:both}
+.index_friendscomment_list.active{background-color:#E1E9F0;}
+.index_friendscomment_content .friends_name a{font-weight: bold;color:#666;}
+.index_friendscomment_content .friends_name a.active{color:#227dc5;text-decoration: none;}
+.index_friendscomment_content .friends_time{color:#aaa;}
+.index_friendscomment_content span{margin-right: 5px;}
+.index_friendscomment_content .friends_delete{ margin-left: 10px;}
+.friends_zan,.friends_delete{display: none;float: right;}
+.index_friendscomment_content .friends_zan a,.index_friendscomment_content .friends_delete a{text-decoration:none;float: right;height: 18px;width: 40px;text-align: center;line-height: 18px;background-color: #cbdbea;color: #227dc5;border-radius: 10px;}
+.friends_zan a.active{background-color: #3879D9;color: #fff;}
+.friends_delete a.active{background-color: #3879D9;color: #fff;}
+.index_comment .limit{width: 500px;height: 124px;overflow: hidden;}
+.limit_more{background-color: #F8F8F8;text-align: center;}
+/*** 多文本域 ***/
+
+.index_friendstextarea{resize:none;width:415px;margin-left:10px;float: left;margin-bottom:10px;overflow-y:hidden}
+/*** 提示多少字 ***/
+.index_friendshint{padding-left:15px;display: none;}
+/*** 按钮 ***/
+.index_friendssureinfo{float: right;margin-right:15px;margin-top:-5px;display:none;}
+.model_main_right::before,.model_main_right::after{content: '';display: table;}
+.model_main_right::after{clear: both}
+
+body::before,body::after{content: '';display: table;}
+body::after{clear: both}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

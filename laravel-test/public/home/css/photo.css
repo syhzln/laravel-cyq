@@ -1,0 +1,82 @@
+body{ padding-left:150px;}
+#change_infof ul{width:860px;}
+#change_info{width:860px;}
+/*****************************  我的相册 和 最近图片  *************************************/
+#photo_second{width:860px; height:auto; box-shadow: none;margin:0 auto;margin-top:20px;margin-bottom:20px; background-color: #fff; outline:1px solid #ccc}/*********  最外面的框 **********/
+#photo_ulf{width:860px;height:60px;background-color: #F8F8F8;}/*********  我的相册这个第一行的的框 **********/
+#photo_ul a{height:60px; float:left; weight:60px; padding:0 20px; line-height:60px; font-size:14px;color:black;}
+#photo_ul li{width:60px; height:57px;text-align:center}
+#photo_ul li:hover{font-weight:bold; border-bottom: 3px solid blue;}
+.photo_inright{float:right;line-height:60px;}
+
+/***************** 照片集 *******************/
+.photo_photos {width:850px; margin:20px 5px 10px 5px; padding:5px;}
+.photo_photo {width:270px; height:250px;  margin:5px; float:left }
+.photo_img{width:260px;height:195px; border:1px solid #ccc; border-radius: 5px; margin:0 auto;text-align:center;vertical-align:middle;line-height: 195px;}
+.photo_from{height:50px;width:260px;margin:0 5px;line-height:50px;}
+.photo_from a{float:left;color:black;}
+.photo_from a:hover{text-decoration: underline;color:#227DCF;}
+.photo_from span{float:right;}
+.photo_anniu{width:820px;height:40px; line-height:40px; margin:0 20px;  }
+.photo_anniu a{float: right}
+.photo_photos::before,.photo_photos::after{content:'';display:table;}
+.photo_photos::after{clear:both}
+.photo_second::before,.photo_second::after{content:'';display:table;}
+.photo_second::after{clear:both}
+
+
+/*fixed*/
+.mybody{position: fixed;width:100%;height:100%;background-color:#ccc;z-index:1200;top:0;left:0;opacity: 0.5;display: none;}
+.diary_brow{opacity:10;position:fixed; width:410px;height:260px;background-color:#F8F8F8; top:35%;left:35%;z-index: 1300;padding:10px 0;box-shadow:0 0 25px -3px #0f0f0f;display:none}
+.diary_brow1{width:100%;height:35px;padding-left:10px;padding-top:5px;}
+.diary_brow1span{height:100%;border-bottom:3px solid blue;padding:5px 0;}
+.diary_brow2{width:100%;height:190px;background-color:#fff;margin-top:10px;padding:0 10px;padding-left:20px;paddint-top:50px;}
+.diary_brow2 input{margin:20px 0;}
+.diary_brow2 a{padding-top:3px;padding-bottom:3px;margin-top:20px;}
+#docuo:hover{cursor:pointer;}
+
+.file {
+    position: relative;
+    display: inline-block;
+    background: #D0EEFF;
+    border: 1px solid #99D3F5;
+    border-radius: 4px;
+    padding: 4px 12px;
+    overflow: hidden;
+    color: #1E88C7;
+    text-decoration: none;
+    text-indent: 0;
+    line-height: 20px;
+    vertical-align: middle;
+}
+.file input {
+    position: absolute;
+    font-size: 100px;
+    right: 0;
+    top: 0;
+    opacity: 0;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

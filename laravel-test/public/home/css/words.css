@@ -1,0 +1,11 @@
+body{padding-left:150px;}
+
+.friends_out{width:760px; background-color: #f8f8f8;margin:20px auto 0;box-shadow: 0 0 6px 3px #ccc;}
+.friends_first{width:100%;height:60px;background-color:#F8F8F8;padding:0 25px;}
+.friends_first li{float:left;height:60px;font-size:16px;font-weight: bold;line-height: 60px;margin:0 20px 0 0;}
+.friends_info_all{background-color: #fff}
+.index_friendinfos textarea{resize: none;border: none;outline: none;width: 100%}
+
+.wordsconment{padding:10px 25px}
+.index_onefriend{width:100%;}
+.index_friendinfo{width:625px;}

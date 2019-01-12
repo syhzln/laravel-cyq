@@ -1,0 +1,13 @@
+.box{
+    width:237px;
+}
+.box a{
+    cursor: pointer;
+    color: #333;
+    text-decoration: none;
+    font-family: 微软雅黑;
+    font-size: 12px;
+}
+#game p{
+    text-align: center;
+}

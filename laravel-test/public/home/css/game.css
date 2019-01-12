@@ -1,0 +1,23 @@
+body{
+    background-color: #FFF;
+}
+.game_list p{
+    text-align: center;
+    width:150px;;
+    font-family: 微软雅黑;
+    font-size: 12px;
+}
+.game{
+    margin: 0 auto;
+    width: 830px;
+}
+
+.game_list li{
+    float:left;
+    margin-right:16px ;
+    margin-bottom: 16px;
+    background: #e9ebeb;
+}
+.gameimg{
+    padding: 10px;
+}

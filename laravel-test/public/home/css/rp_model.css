@@ -1,0 +1,185 @@
+.container-fluid{width: 80%}
+body{padding: 0px !important;margin: 0px !important;box-shadow: 0px 0px 0px 0px !important;}
+#rp_top{ overflow: hidden;position:fixed;  width:100%; height:50px; top:50px;left: 0px; background-color:#F3F6F8;box-shadow: 0 2px 3px 0 #ccc;z-index: 750;}
+#rp_list{ width:80%; margin:0 auto;}
+#rp_list ul{ list-style: none; width:100%; height:50px;  line-height:50px; text-align:center;}
+#rp_list ul li{ height:47px; margin:3px 25px; float:left;color:#666;}
+#rp_list ul li:hover{ border-bottom:3px solid #227DC5;}
+#rp_list .active{border-bottom:3px solid #227DC5;font-weight: bold;}
+#rp_list a{ color:#050506;}
+#rp_list svg{width: 18px;height: 18px;}
+#rp_list .hua{color:#BDC8D4;}
+#rp_list .list_hua{float:left;line-height: 56px;}
+.ft-wrapper{float: none;margin: 0 auto;}
+.ft-wrapper p { margin-left: 40px;}
+
+/*人品*/
+#connect_rp{height: 1390px;width: 990px;margin: 100px auto 30px;}
+#connect_rp_box{width: 980px;height: 1390px;background-color: #fff;border:1px solid #D1D1D1;padding: 20px 0;overflow: hidden;}
+#rp_left{width: 580px;height: 1300px;margin-left: 80px;float: left;}
+.rp_rpValue{width: 580px;height: 307px;float: left;}
+.myRP{border: 1px solid #CEE1EE;width: 580px;height: 155px;}
+.myrpValue{width:580px;height: 40px;background-color: #E5E9F3;float: left;}
+.myrpValue p{line-height: 40px;font-size: 16px;padding: 0 30px;}
+.sumRP{width: 580px;height: 40px;margin-top: 10px;margin-bottom: 10px;float: left;line-height: 40px;font-size: 16px;padding: 0 30px;}
+.sumRP span{font-size: 40px;color:#2570B3;font-weight: bold;}
+.todayRP{width:350px;height: 40px;float: left;line-height: 40px;font-size: 16px;padding: 0 30px;}
+.submitRP{;width:100px;height: 30px;float: right; background-color:#F55C32;line-height: 30px;margin-right: 20px;border: 1px solid #ccc;text-align: center;color:#fff;font-size: 13px;font-weight: bold;border-radius: 5px;}
+/*解锁*/
+.unlock{width: 580px;height: 360px;border: 1px solid #CEE1EE;margin-top: 15px;float: left;}
+.mylock{width: 580px;height: 40px;background-color: #E5E9F3;}
+.mylock p{line-height: 40px;font-size: 16px;padding: 0 30px;}
+.unlock_list li{position: relative; float: left; width: 100px;margin: 25px 0 0 12px;display: inline; text-align: center;}
+.unlock_list img{-moz-border-radius:10px;-webkit-border-radius:10px;}
+/*Q&A*/
+.helpRP{width: 580px;height: 650px;border: 1px solid #CEE1EE;margin-top: 15px;float: left;overflow: hidden;}
+.helpList{width: 580px;height: 40px;background-color: #E5E9F3;}
+.helpList p{line-height: 40px;font-size: 16px;padding: 0 30px;}
+.helpConnet h3{ float: left;font-size: 14px;margin: 15px 0 0 20px;width: 550px;display: inline;font-weight: bold;}
+.helpConnet h4{ float: left;font-size: 14px;margin: 10px 0 0 45px; width: 510px; line-height: 25px; display: inline; font-weight: normal;}
+#rp_right{width: 240px;height:200px;float: left;}
+#rp_right h4{margin: 15px 0px 0px 25px;}
+#rp_right ul{margin: 15px 0px 0px 25px;border-top: 1px solid #ccc;width:215px;float: left;font-size: 14px;display: inline;}
+#rp_right ul a{font-size: 30px;}
+#rp_right li{margin: 15px 0px 0px 25px;width: 215px;height: 50px;float: left;margin-top: 12px;list-style: none;display: list-item; text-align: -webkit-match-parent;}
+.rankTop {background-color: #eb8727;}
+.rankLabel {float: left;width: 20px;height: 20px; border-radius: 2px; -webkit-border-radius: 2px;-moz-border-radius: 2px;-o-border-radius: 2px;color: #fff;line-height: 20px;text-align: center;}
+#rp_right a img{float: left;width: 50px;height: 50px;margin-left: 10px;display: inline;}
+#rp_right .name {float: left;font-size: 12px;color: #369;margin: 3px 0 0 10px;display: inline;font-weight: bold; width: 125px;outline: 0;}
+#rp_right .score {float: left;width: 40px;height: 20px;background: #f2f2f2; line-height: 20px;text-align: center;border-radius: 2px; -webkit-border-radius: 2px;-moz-border-radius: 2px;-o-border-radius: 2px;margin: 5px 0 0 10px;color: #369;}
+/*=========================================日历=====================================================*/
+#connect_date{height: 1026px;width: 990px;margin: 100px auto 30px;}
+#connect_date_box{width: 980px;height: 1026px;background-color: #fff;border:1px solid #D1D1D1;padding: 20px 0;overflow: hidden;}
+.date_main{width: 810px;height: 1026px;margin: 0 85px;}
+.date_main a{float: left;position: relative;z-index:100;position: relative;z-index:100;}
+.date_main a p{position: absolute;z-index:200;color:#F9DA0A; width: 90px;display: block; font-family: Tahoma;font-size: 28px;text-align: center;right: 57px;top: 15px; text-shadow: 2px 0 0 #1e86d9, -2px 0 0 #1e86d9, 0px 2px 0 #1e86d9, 0px -2px 0 #1e86d9;}
+.clearfix:after {content: " ";display: block;clear: both;}
+.sc-userinfo {padding: 10px 0 0 0; width: 810px;height: 102px;float: left;}
+.user-login-total{width: 257px;height: 102px;float: left;background-color: #eff4f8;border: 1px solid #d8e1e9;margin-right: 18px;border-radius: 5px;padding: 25px 0 0 30px;}
+.sc-userinfo .avatar img {display: block;float: left;width: 50px;height: 50px;}
+.sc-user-detail{margin-left: 10px;width: 50px;height: 60px;float: left;}
+.sc-user-detail p{margin: 0px;}
+.sc-login-day{font-size: 30px;}
+.user-login-card {position: relative;width: 257px;height: 102px;float: left;background-color: #eff4f8;border: 1px solid #d8e1e9; margin-right: 18px;border-radius: 5px;padding: 25px 0 0 30px;}
+.user-login-card img{float: left;}
+.sc-card-detail {margin-left: 10px;float:left;}
+.first-line{float: left;margin-bottom: 10px;width: 96px;}
+.first-line img{float: right;}
+.second-line{color: #333;font-weight: bold;line-height: 36px;}
+.sc-card-num{display: inline;font-weight: normal;font-size: 30px;float: left;}
+.sc-card-detail .buy-card{line-height: 36px;float: right;}
+.sc-intro-dialog{display: none;}
+.max-login-day {width: 257px;height: 102px;float: left;background-color: #eff4f8;border: 1px solid #d8e1e9;margin-right: 0;border-radius: 5px;padding: 25px 0 0 30px;}
+.max-login-day img{float: left;}
+.max-login-num {float: left;margin-left:10px;}
+.max-login-num .first-line{color:#666;font-size: 12px;width: auto;}
+.max-login-num .second-line{line-height: 36px;color: #333;font-weight: bold;}
+.max-login-num .second-line .max-num{font-size: 30px;}
+.sc-progress-bar{margin-top: 30px;width: 810px;height: 115px;float: left;}
+.sc-login-info{margin-bottom: 20px;color:#888;font-size: 12px;}
+.sc-login-info .current-day{float: left;display: inline-block;}
+.sc-login-info .need-day{float: right;display: inline-block;}
+.sc-back-img {width: 806px;height: 21px;background: url('../img/progress-bar-back.png') no-repeat;float: left;}
+.sc-back-img .sc-progress-img{height: 21px; background: url('../img/progress-bar.png') no-repeat;}
+.calendar-tool {width: 810px;height: 58px;float: left;}
+.calendar-date{float: left;}
+.calendar{width: auto !important;height: auto !important;}
+.calendar-tool .check-not-login{float: right;display: block;width: 300px;height: 26px;margin-top: 30px;text-align: center;color: #333;text-decoration: none;border-radius: 2px;}
+.calendar-login {width:800px;height:600px;float: left;}
+/*我的积分*/
+#connect_points{height: 1388px;width: 990px;margin: 100px auto 30px;}
+#connect_points_box{width: 980px;height: 1388px;background-color: #fff;border:1px solid #D1D1D1;padding: 20px 0;overflow: hidden;}
+.point-mid {margin-left: 81px;float: left;margin-right: 18px;width: 580px;width: 580px;height: 1440px;}
+.growing {margin: 20px 0 15px;width: 580px;height: 71px;float: left;}
+.growing .award-status {float: left;text-align: center;color: #888;}
+.growing .login-info {margin-left: 65px;}
+.growing .login-info .growing-title {font-size: 14px;font-weight: bold;}
+.level-icon img {margin-right: 0;}
+.levelHot-1 {background-position: center 2px;background-image: url('../img/level-new-fixed.png');}
+.levelHot-2 {background-position: center -25px;background-image: url('../img/level-new-fixed.png');}
+.levelHot-3 {background-position: center -50px;background-image: url('../img/level-new-fixed.png');}
+.levelHot-4 {background-position: center -80px;background-image: url('../img/level-new-fixed.png');}
+.levelHot-5 {background-position: center -186px;background-image: url('../img/level-new-fixed.png');}
+.levelHot-6 {background-position: center -80px;background-image: url('../img/level-new-fixed.png');}
+.levelHot-1, .levelHot-2, .levelHot-3, .levelHot-4, .levelHot-5, .levelHot-6 { width: 18px;height: 18px;background-repeat: no-repeat;}
+.login-info .gray {color: #888;font-size: 12px;}
+.login-info .grade-hint {margin-top: 5px;}
+.grade-hint .integral {display: block;float: left; margin-right: 10px; margin-top: 3px; width: 400px;border: 1px solid #b8d4e8;height: 8px;position: relative;text-align: center;text-decoration: none;background: #fff; color: #4f90c6;}
+.grade-hint .integral .bg {border: 1px solid #005eac;height: 8px;line-height: 12px;overflow: hidden;position: absolute;top: -1px;left: -1px;background: url('../img/point_bg.png') repeat-x;}
+.mid-section h4, .ranking-module h4 {font-size: 12px;text-align: left;border-bottom: 1px solid #cee1ee;padding-bottom: 5px;margin: 10px 0;}
+a:link, a:visited {color: #369;text-decoration: none;}
+.privilege-info li {width: 180px;height: 64px;overflow: hidden;float: left;margin-right: 10px;margin-bottom: 10px;}
+.privilege-info li .award-status { float: left;text-align: center; color: #888;}
+.privilege-info li .award-intro {margin-left: 75px;font-size: 12px;}
+h1, h2, h3, h4, h5, h6 {font-size: 100%;font-weight: normal;margin:0px;}
+a:link, a:visited {color: #369;text-decoration: none;}
+.award-intro p {color: #888;line-height: 18px;margin-top: 5px;}
+.mid-section .forward {text-align: center;color: #AAA;margin: 10px 0 20px;}
+.growth-system-words {color: #666;margin: 15px 0;line-height: 1.4em;}
+.growth-system {padding: 8px 0 0;width: 580px;float: left}
+.growth-system li {text-align: center;width: 94px;overflow: hidden;float: left; }
+li.next-level {background: url('../img/next-level.png') no-repeat center 0;height: 9px;width: 25px;margin-top: 10px;}
+.growth-system-words {color: #666;margin: 15px 0;float: left;}
+.mid-section{float: left;}
+.mid-section table {width: 580px !important;border: 1px solid #b8d4e8;border-collapse: collapse;margin: 5px 0;width: 716px;word-wrap: break-word;}
+.mid-section th{border: 1px solid #DDD;border-collapse: collapse;height: 30px;line-height: 16px;text-align: center;background-color: #F2F2F2;}
+.grade-class td {text-align: center;text-align: left;padding: 10px 20px;border: 1px solid #DDD;border-collapse: collapse;height: 30px;line-height: 16px;text-align: center;}
+.point-info {float: left;width: 220px;}
+.mini-section {border: 1px solid #cee1ee;margin-bottom: 10px;}
+.mini-section h4 {background: #f0f5f8;padding: 8px 10px;margin: 0 0 10px;font-size: 12px;}
+.means-list, .ranking-list {padding: 0 10px 10px;text-align: right;}
+.means-list dl {text-align: left;}
+.means-list dt {color: #333;font-size: 13px;}
+.means-list dd {color: #888;padding: 4px 0 14px;font-size: 12px;}
+.ranking-module {margin-top: 20px;}
+.bang-left{margin-bottom: 10px;}
+.bang-left li{width: 200px;height:50px;margin:0 5px 10px;}
+.ranking-module ul {width: auto;text-align: left;}
+.bang-list ul {width: 50%;float: left;}
+.ranking-module ul {width: auto;text-align: left;}
+.bang-list ul {width: 50%;float: left;}
+.ranking-module li .ranking { margin-right: 10px; vertical-align: top; }
+.bang-list li .top3 {background-position: 0 -16px !important;float: left;}
+.bang-list li .ranking { width: 17px;height: 16px;text-align: center;line-height: 16px;margin-right: 10px; font-weight: bolder;color: #FFF;background: url('../img/point-icon.png') no-repeat 0 0;}
+.ranking-module li .avatar {margin-right: 5px;}
+.bang-list li .avatar {width: 50px;height: 50px;overflow: hidden;float: left;}
+.ranking-module li .detail {width: 90px;margin: 0;white-space: nowrap;overflow: hidden;}
+.bang-list li .detail {vertical-align: top;width: 100px;float: left;}
+.bang-list li .detail p {margin-bottom: 5px;line-height: 18px;  }
+.bang-list li .detail p em {margin-right: 20px;}
+.bang-list .ranking-more{float: left;}
+/*========================================================好友等级=====================================*/
+#connect_grade{width: 980px;margin: 100px auto 30px;}
+.full-page {width: 980px;margin: 0 auto;overflow: hidden;background-color: #FFF; border: 1px solid #D1D1D1;border-radius: 3px;padding: 20px 0;}
+.point-main2 {float: left;width: 978px;}
+.point-main2 .nav-tabs2 {width: 978px;height:28px;position: relative; padding-left: 10px;padding-right: 10px;margin-bottom: 10px;border-bottom: 1px solid #cee1ee;word-wrap: normal;word-break: normal;}
+div.nav-tabs2 .tabs2{float: left;width: 111px;height:27px;}
+.point-main2 ul.tabs2 li.selected2 {height: 26px;margin-bottom: -1px;border: solid #cee1ee;border-width: 1px 1px 0 1px;background-color: #FFF;}
+div.nav-tabs2 ul.tabs2 li {display: inline-block; position: relative;font-size: 12px;background-color: #E3EEF8;margin-right: 5px;}
+.nav-tabs2 .tabs2 .selected2 a{display: block;height: 25px;line-height: 25px;padding: 0 10px;}
+.grade-list ul {;float: left;width: 50%;}
+.grade-list li {border-bottom: 1px solid #cee1ee;letter-spacing: -4px;padding: 10px;}
+.grade-list li .top32 {background-position: 0 -16px !important;}
+.grade-list li .ranking2 {display: inline-block;width: 17px;height: 16px;text-align: center;line-height: 16px;margin-right: 20px;font-weight: bolder; color: #FFF; background: url('../img/point-icon.png') no-repeat 0 0;}
+.grade-list li .avatar2 {display: inline-block; vertical-align: middle;letter-spacing: 0;margin-right: 10px;width: 50px;height: 50px;overflow: hidden;}
+.grade-list li .detail2 {display: inline-block;vertical-align: middle;letter-spacing: 0; margin-right: 10px;}
+.grade-list li .detail2 p {margin-bottom: 5px;line-height: 18px;}
+.grade-list li .detail2 p .desc2 {color: #888;margin-right: 5px;}
+.grade-list li .detail2 p .name {font-weight: bolder;margin-right: 5px;vertical-align: baseline;}
+.grade-list li .detail2 p em {margin-right: 20px;}
+.level-icon img {margin-right: 0;}
+/*===================================成长奖励=========================================*/
+#connect_reward{width: 980px;margin: 100px auto 30px;}
+.full-page {width: 980px;margin: 0 auto;overflow: hidden;background-color: #FFF; border: 1px solid #D1D1D1;border-radius: 3px;padding: 20px 0;}
+.introduction-main{float: left;width: auto;}
+.introduction-main .section{border: 1px solid #cee1ee;margin-bottom: 10px;}
+.introduction-main .section h2 {background: #f0f5f8;height: 34px;padding: 10px 10px 0;margin: 0 0 10px;font-size: 100%;font-weight: normal;}
+.introduction-main .section p {font-size: 14px;line-height: 24px;padding: 0 20px 10px;}
+.section-padding {padding: 0 20px 10px;}
+.introduction-main .section table {margin: 10px 20px;border: 1px solid #b8d4e8; border-collapse: collapse;margin: 5px 0; width: 716px;word-wrap: break-word;}
+.introduction-main th{background: #f2f2f2;font-size: 13px;font-weight: inherit;}
+.introduction-main td{text-align: left;padding: 10px 20px;font-size: 12px;}
+.introduction-main td, .introduction-main th{border: 1px solid #DDD;border-collapse: collapse;height: 30px;line-height: 16px;text-align: center;}
+
+
+

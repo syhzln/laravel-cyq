@@ -1,0 +1,31 @@
+.ft-wrapper{
+    position:relative;
+    border-top:1px solid #d8d8d8;
+    padding:15px 0 30px;
+    width:760px;
+    margin:30px auto 0;
+    background-color:transparent;
+    float: right;
+}
+.ft-wrapper p{
+    float:left;
+    margin-right:40px
+}
+.ft-wrapper p a,.ft-wrapper span,.ft-wrapper strong{
+    display:block;
+    line-height:28px;
+    color:#666
+}
+.ft-wrapper p a{
+    outline:0
+}
+.ft-wrapper span{
+    text-align:right
+}
+.ft-wrapper .copyright-info {
+    float: right;
+    margin-right: 0;
+}
+
+                                                                                                                                                                                                                                                                                                                                                ft-wrapper a.l-2{line-height:normal}.ft-wrapper p a:hover{color:#227dc5}.ft-wrapper
+                                                                                                                                                                                                                                                                                                                                                                                                                         {float:right;margin-right:0}

@@ -1,0 +1,55 @@
+
+/*头*/
+.ugc-left-header {
+    width: 597px;
+    height: 49px;
+    background-color: #f8f8f8;
+    border: 1px solid #e1dfdf;
+    border-bottom-color: #DDD;
+    border-top-left-radius: 3px;
+    border-top-right-radius: 3px;
+    margin: 15px auto 0px;
+}
+/*头左*/
+.ugc-header-left {
+    float: left;
+    height: 49px;
+    overflow: hidden;
+}
+/*头右*/
+.ugc-header-right {
+    float: right;
+    margin-top: 10px;
+    height: 31px;
+}
+
+.ugc-header-left a.headhover .ugc-header-span {
+    font-weight: bold;
+    line-height: 46px;
+    color: #333;
+}
+
+.ugc-header-left a.ugc-header-a .ugc-header-span {
+    float: left;
+    display: block;
+    padding: 0 4px;
+    height: 46px;
+    line-height: 44px;
+    color: #666;
+    overflow: hidden;
+    _zoom: 1;
+    cursor: pointer;
+}
+
+.out_kuang{width:100%;height:auto;background-color: #fff;}
+.middle_kuang{width:100%;height:auto;}
+.in_kuang{width:540px;margin:0 auto;padding:21px 0;border-bottom:1px solid #ccc;}
+.in_kuang1{font-size:22px;font-weight: bold;}
+.in_kuang2{font-size:12px;color:#aaa;height:33px;line-height:33px;}
+.in_kuang3{padding:5px 0;}
+.in_kuang4{padding:5px 0;text-align: right;width:100%;}
+
+
+
+
+

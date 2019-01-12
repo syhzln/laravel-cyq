@@ -1,0 +1,103 @@
+.bd-content {
+    margin: 0 auto;
+    padding: 15px 0 0;
+    position: relative;
+    width: 840px;
+}
+
+.info-left {
+    float: left;
+    width: 426px;
+    overflow: hidden;
+}
+.info-section {
+    margin-bottom: 10px;
+    margin-right: 10px;
+    overflow: hidden;
+    zoom: 1;
+    width: 387px;
+    float: left;
+    padding: 20px 19px 10px;
+    background: #fff;
+    border: 1px solid #dedede;
+    box-shadow: 0 1px 0 #dedede;
+    -webkit-border-radius: 3px;;
+    -moz-border-radius: 3px;
+    border-radius: 3px;
+}
+.details-infoedit {
+    position: relative;
+}
+.input-class {
+    border: 1px solid #BDC7D8;
+    padding: 4px;
+    width: 120px;
+}
+.info-section h4 span {
+   font-size: 14px;
+}
+.info-section h4 .icon-box, .legend .icon-box {
+    height: 16px;
+    margin-right: 10px;
+    width: 16px;
+    display: block;
+    float: left;
+}
+.birth{
+    border: 1px solid #BDC7D8;
+}
+.select-class{
+    border: 1px solid #BDC7D8;
+    padding: 4px;
+    width: 73px;
+}
+
+.music-info-edit {
+    margin: 10px 0 10px 0;
+}
+
+form.panel p {
+    line-height: 20px;
+    margin-bottom: 10px;
+    color: #888;
+}
+
+.panel label span {
+    _vertical-align: middle;
+    float: left;
+    display: inline-block;
+    width: 65px;
+    margin-right: 6px;
+    vertical-align: top;
+}
+
+.details-infoedit form .textarea {
+    width: 300px;
+    vertical-align: top;
+    border-color: #d6dae4;
+}
+
+form.panel label span {
+    _vertical-align: middle;
+    float: left;
+    display: inline-block;
+    width: 65px;
+    margin-right: 6px;
+    vertical-align: top;
+}
+form.panel p {
+    line-height: 20px;
+    margin-bottom: 10px;
+    color: #888;
+}
+
+abel {
+    color: #333;
+    cursor: pointer;
+}
+#change_info{
+    width:970px;
+}
+#change_info{
+    width:970px;
+}

@@ -1,0 +1,31 @@
+/*==============================================最近来访=====================================*/
+.clearfix:after{content:" ";display:block;clear:both}
+.bd-main{margin-top: 100px;}
+.bd-content {width: 980px;margin: 0 auto;padding: 15px 0; position: relative;}
+.visitmeheader {height: 43px;width: 930px;}
+.visitmeheader span {background: url('../img/footprintnew.png') no-repeat;margin-right: 40px;font-size: 14px;line-height: 43px;color: #333;padding-left: 15px;background-position: -9px -115px;}
+#visitme_all .visitmeheader .rightset {margin-left: 360px;margin-right: 0;color: #227dc5;cursor: pointer;background: 0;padding: 0;}
+#footwall_visitme {width: 960px;}
+.footcard {width: 168px;height: 300px;background: white;border: 1px solid #e1dfdf;overflow: hidden;float: left;margin-right: 20px;margin-bottom: 20px; position: relative;}
+.footcard .head {width: 168px;height: 152px;overflow: hidden;display: block;}
+.footcard .head img{ width: 186px;height: 150px; border:0;}
+.footcard .content {height: 87px; position: relative;padding: 9px 10px;}
+.footcard .leftmenu {float: left;width: 126px;display: block;padding: 0;}
+.footcard .leftmenu li {font-size: 14px;color: #333;margin-bottom: 8px;}
+.footcard .leftmenu li a {color: #333;}
+.footcard .toggleshow { background: url('../img/footprintnew.png') no-repeat;width: 20px;height: 20px;float: left; background-position: -5px -135px;border-radius: 3px;}
+.footcard .toggleshow.active {background-color:#BDC8D4;background-position: -5px -155px;}
+.footcard .rightmenu {position: absolute;top: 30px;right: 11px;z-index: 100; border-radius: 3px; border: 1px solid #e1dfdf; box-shadow: 0 0 8px #e1dfdf; width: 145px; background-color: white;padding: 10px 0;display: none;}
+.footcard .rightmenu li { height: 34px;font-size: 14px;color: #333;line-height: 34px; padding-left: 20px; cursor: pointer;}
+.footcard .rightmenu li.active {background-color:#BDC8D4}
+.footcard .talk {color: #fff;background-color: #3E94D7;}
+.footcard .add-friend-btn {height: 28px;display: block;color: white;font-size: 14px;line-height: 28px;margin-top: 95px;}
+.ui-button {display: inline-block;zoom: 1;padding: 0 20px;font-size: 14px;line-height: 28px;color: #666;text-align: center;vertical-align: middle;cursor: pointer;border: 1px solid #a7acb5;border-radius: 3px;box-shadow: 0 1px 0 rgba(0,0,0,.15);}
+.footcard .add-friend-btn .ui-iconfont {margin-top: 6px;margin-right: 5px;color:#fff;}
+.ui-button .ui-icon {position: relative;top: 4px;color:#fff;}
+.ui-iconfont {font-weight: 400;font-style: normal;font-size: 18px;line-height: 18px;vertical-align: top; -webkit-font-smoothing: antialiased;background: 0 0;width: 18px;height: 18px;overflow: visible;}
+.footcard .talk {color: #fff;}
+.duihua1{color:#fff;width: 20px;height: 20px;}
+use{color:#fff;}
+
+
